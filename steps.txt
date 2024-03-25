@@ -1,0 +1,46 @@
+npx create-expo-app AppName
+cd AppName
+npx expo install react-native-webview
+> modify app.js 
+	import * as React from 'react';
+	import { WebView } from 'react-native-webview';
+
+
+	export default function App() {
+	  return (
+		<WebView
+		  style={styles.container}
+		  source={{ uri: 'https://expo.dev' }}
+		/>
+	  );
+	}
+
+npm install -g eas-cli
+eas login
+eas build:configure
+eas build --platform android (--local)
+
+>per fare apk
+	eas.json
+	{
+	  "build": {
+		"preview": {
+		  "android": {
+			"buildType": "apk"
+		  }
+		},
+		"preview2": {
+		  "android": {
+			"gradleCommand": ":app:assembleRelease"
+		  }
+		},
+		"preview3": {
+		  "developmentClient": true
+		},
+		"preview4": {
+		  "distribution": "internal"
+		},
+		"production": {}
+	  }
+	}
+	eas build -p android --profile preview
