@@ -1,3 +1,4 @@
+install nodejs and npm if you haven't already
 npx create-expo-app AppName
 cd AppName
 npx expo install react-native-webview
